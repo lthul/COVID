@@ -24,6 +24,7 @@ def convFIPS2Name(fips):
 	fips_county = dl.load_data("fips_county.obj")
 	return [fips_county[fips[i]] for i in range(len(fips))]
 
+
 class County:
 	def __init__(self, df, pop, county, fips):
 		self.cdata = df[df.fips == fips]

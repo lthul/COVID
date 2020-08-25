@@ -27,7 +27,7 @@ FLOW+=1
 countyf = dl.load_data('fips_county.obj')
 idx_dict = dl.load_data('idx_dict2.obj')
 N = np.array(list(POP.values()))
-T=25
+T=10
 S = np.zeros([N.shape[0],T+1])
 S[:,0] = N.__copy__()
 
@@ -55,7 +55,7 @@ I[ii,0] = infected
 # alpha = np.linspace(0.9, 0.2, T)
 #
 gamma = 0.8 * np.ones(T)
-beta  = 1.25 * np.ones(T)
+beta  = 0.9 * np.ones(T)
 alpha = 0.8 * np.ones(T)
 
 for t in range(T):
@@ -67,7 +67,7 @@ for t in range(T):
     # I[:, t + 1] = np.max([np.zeros(I[:, t + 1].shape), I[:, t + 1]])
     R[:,t+1] = R[:,t] + gamma[t]*I[:,t]
     # R[:, t + 1] = np.max([np.zeros(R[:, t + 1].shape), R[:, t + 1]])
-
+    print(sum(N))
 
 
 data_slider = []
